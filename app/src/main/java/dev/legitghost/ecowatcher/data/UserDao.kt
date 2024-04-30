@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-// Contains the metods used for accessing the database
+// Contains the methods used for accessing the database
 
 @Dao
 interface UserDao {

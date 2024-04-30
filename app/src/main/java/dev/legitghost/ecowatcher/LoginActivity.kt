@@ -1,16 +1,16 @@
 package dev.legitghost.ecowatcher
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import dev.legitghost.ecowatcher.databinding.ActivityLoginBinding
+
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 

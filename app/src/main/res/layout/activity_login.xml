@@ -31,6 +31,30 @@
         android:layout_marginTop="32dp"
         />
 
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Correo electrónico"
+        android:textSize="18dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/etEmail"
+        android:layout_marginTop="32dp"
+        />
+
+    <TextView
+        android:id="@+id/tvEdad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad"
+        android:textSize="18dp"
+        android:layout_marginStart="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/etEdad"
+        android:layout_marginTop="32dp"
+        />
+
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="0dp"
@@ -46,6 +70,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/gray"
+        android:hint="Ingresa tu email"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+
+    <EditText
+        android:id="@+id/etEdad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/gray"
+        android:hint="Ingresa tu edad"
+        android:inputType="number"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
     <Button
         android:id="@+id/btnGuardar"
         android:layout_width="300dp"
@@ -59,7 +113,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNombre"
+        app:layout_constraintTop_toBottomOf="@+id/etEdad"
         android:layout_marginTop="32dp"
         />
 
