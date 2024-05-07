@@ -1,9 +1,9 @@
-package dev.legitghost.ecowatcher.data
+package dev.legitghost.ecowatcher.data.Entitys
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-// Contains the data structure for the user table
+
 
 
 @Entity(tableName = "user_table")

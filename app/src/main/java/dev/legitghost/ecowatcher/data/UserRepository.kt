@@ -1,6 +1,7 @@
 package dev.legitghost.ecowatcher.data
 
 import androidx.lifecycle.LiveData
+import dev.legitghost.ecowatcher.data.Entitys.User
 
 class UserRepository (private val userDao : UserDao) {
 

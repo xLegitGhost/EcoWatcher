@@ -21,27 +21,13 @@ class LoginFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        view.findViewById<Button>(R.id.btnGuardar).setOnClickListener {
-            checkData()
+        view.findViewById<Button>(R.id.btnAcceder).setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
         }
-
 
         return view
     }
 
-    private fun checkData() {
-        val name = view?.findViewById<EditText>(R.id.etNombre)?.text.toString()
-        val email = view?.findViewById<EditText>(R.id.etEmail)?.text.toString()
-        val age = view?.findViewById<EditText>(R.id.etEdad)?.text.toString()
-
-        if(inputCheck(name, email, age)) {
-            Toast.makeText(requireContext(), "Datos guardados", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
-        } else {
-            Toast.makeText(requireContext(), "Llena todos los campos", Toast.LENGTH_SHORT).show()
-        }
-
-    }
 
     private fun inputCheck(name: String, email: String, age: String): Boolean {
         return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(age))
