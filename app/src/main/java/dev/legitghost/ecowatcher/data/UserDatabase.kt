@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import dev.legitghost.ecowatcher.data.Entitys.User
 
 // Contains the access to the database
 
