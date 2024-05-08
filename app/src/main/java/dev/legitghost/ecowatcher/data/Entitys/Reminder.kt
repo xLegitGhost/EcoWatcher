@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 // Contains the data structure for the user table
 
-@Entity(tableName = "reminders_table")
+@Entity(tableName = "reminder_table")
 data class Reminder (
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
@@ -15,5 +15,6 @@ data class Reminder (
     @ColumnInfo(name = "month") val month: Int,
     @ColumnInfo(name = "day") val day: Int,
     @ColumnInfo(name = "hour") val hour: Int,
-    @ColumnInfo(name = "minute") val minute: Int
+    @ColumnInfo(name = "minute") val minute: Int,
+    @ColumnInfo(name = "timeDate") val timeDate: String
 )

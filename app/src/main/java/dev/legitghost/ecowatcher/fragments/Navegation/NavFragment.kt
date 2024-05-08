@@ -27,15 +27,21 @@ class NavFragment : Fragment() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.homeBottomNav -> {
-                    if(findNavController().currentDestination?.id != R.id.homeFragment) {
+                    if(findNavController().currentDestination?.id == R.id.listReminderFragment) {
+                        findNavController().navigate(R.id.action_listReminderFragment_to_homeFragment)
+                    }
+                    if(findNavController().currentDestination?.id == R.id.addReminder) {
                         findNavController().navigate(R.id.action_addReminder_to_homeFragment)
                     }
 
                     true
                 }
                 R.id.reminderBottomNav -> {
-                    if(findNavController().currentDestination?.id != R.id.addReminder) {
-                        findNavController().navigate(R.id.action_homeFragment_to_addReminder)
+                    if(findNavController().currentDestination?.id == R.id.homeFragment) {
+                        findNavController().navigate(R.id.action_homeFragment_to_listReminderFragment)
+                    }
+                    if(findNavController().currentDestination?.id == R.id.addReminder) {
+                        findNavController().navigate(R.id.action_addReminder_to_listReminderFragment)
                     }
 
                     true

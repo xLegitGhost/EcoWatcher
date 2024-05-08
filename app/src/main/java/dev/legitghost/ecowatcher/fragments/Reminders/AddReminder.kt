@@ -1,19 +1,26 @@
 package dev.legitghost.ecowatcher.fragments.Reminders
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import dev.legitghost.ecowatcher.R
+import dev.legitghost.ecowatcher.data.Entitys.Reminder
+import dev.legitghost.ecowatcher.data.ViewModel.ReminderViewModel
 import dev.legitghost.ecowatcher.databinding.FragmentAddReminderBinding
 import java.time.LocalDateTime
 
 class AddReminder : Fragment() {
 
-    private lateinit var binding : FragmentAddReminderBinding
+    private lateinit var binding: FragmentAddReminderBinding
+
+    private lateinit var mReminderViewModel: ReminderViewModel
 
 
     override fun onCreateView(
@@ -23,47 +30,51 @@ class AddReminder : Fragment() {
         binding = FragmentAddReminderBinding.inflate(inflater, container, false)
 
         binding.btnBackScreen.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_addReminder_to_homeFragment)
         }
+
+        mReminderViewModel = ViewModelProvider(this).get(ReminderViewModel::class.java)
+
+        binding.createReminderButton.setOnClickListener {
+            insertDataToDatabase()
+        }
+
+
 
 
 
         return binding.root;
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun insertDataToDatabase() {
+        val reminderTitle = binding.reminderNameEditText.text.toString()
 
+        val reminderYear = binding.datePicker.year
+        val reminderMonth = binding.datePicker.month
+        val reminderDay = binding.datePicker.dayOfMonth
+        val reminderHour = binding.timePicker.hour
+        val reminderMinute = binding.timePicker.minute
 
+        val reminderFullDate = "$reminderYear-$reminderMonth-$reminderDay $reminderHour:$reminderMinute"
 
-        binding.createReminderButton.setOnClickListener{
-            val reminderTitle = binding.reminderNameEditText.text.toString()
-            val reminderDateTime = LocalDateTime.of(
-                binding.datePicker.year,
-                binding.datePicker.month,
-                binding.datePicker.dayOfMonth,
-                binding.timePicker.hour,
-                binding.timePicker.minute
-            )
+        if(inputCheck(reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderFullDate)) {
 
-            val reminderYear = binding.datePicker.year
-            val reminderMonth = binding.datePicker.month
-            val reminderDay = binding.datePicker.dayOfMonth
-            val reminderHour = binding.timePicker.hour
-            val reminderMinute = binding.timePicker.minute
+            Log.d("lghost", reminderFullDate)
+            //val reminder = Reminder(0, reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderDateTime.toString())
+            //mReminderViewModel.addReminder(reminder)
+            Toast.makeText(requireContext(), "Recordatorio agregado correctamente.", Toast.LENGTH_LONG).show()
 
-            findNavController().navigate(R.id.action_addReminder_to_homeFragment)
-
-
-
-            Log.d("lghost", "Reminder Title: $reminderTitle")
-            Log.d("lghost", "Reminder Date Time: $reminderDateTime")
-
-
-
-            // Guardar data al objeto y mandarla a la base de datos
-            //val trashReminder = TrashReminder(reminderName, reminderDateTime)
+            // Volver a la lista de recordatorios
+            findNavController().navigate(R.id.action_addReminder_to_listReminderFragment)
+        }else{
+            Toast.makeText(requireContext(), "Debes llenar los campos vacíos.", Toast.LENGTH_LONG).show()
         }
+
     }
 
+
+
+    private fun inputCheck(title: String, year: Int, month: Int, day: Int, hour: Int, minute: Int, reminderDateTime: String) : Boolean {
+        return !(title.isEmpty() || year.equals(null) || month.equals(null) || day.equals(null) || hour.equals(null) || minute.equals(null)) || TextUtils.isEmpty(reminderDateTime)
+    }
 }
