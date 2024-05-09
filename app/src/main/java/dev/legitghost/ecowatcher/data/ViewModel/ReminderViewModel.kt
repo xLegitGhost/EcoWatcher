@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class ReminderViewModel(application : Application) : AndroidViewModel(application) {
 
-    private val readAllData: LiveData<List<Reminder>>
+    val readAllData: LiveData<List<Reminder>>
     private val repository : ReminderRepository
 
     init {

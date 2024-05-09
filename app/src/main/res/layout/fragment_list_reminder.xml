@@ -4,9 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.Reminders.ListReminderFragment"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="16dp">
+    tools:context=".fragments.Reminders.ListReminderFragment">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddReminder"
@@ -17,16 +15,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:focusable="true"
-        android:backgroundTint="@color/principal_green"/>
+        android:backgroundTint="@color/principal_green"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
+        android:contentDescription="Añadir recordatorio" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reminderListView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"
         />
 
 

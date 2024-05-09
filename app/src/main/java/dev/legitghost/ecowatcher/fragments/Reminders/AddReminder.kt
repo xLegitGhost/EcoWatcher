@@ -39,10 +39,6 @@ class AddReminder : Fragment() {
             insertDataToDatabase()
         }
 
-
-
-
-
         return binding.root;
     }
 
@@ -60,8 +56,8 @@ class AddReminder : Fragment() {
         if(inputCheck(reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderFullDate)) {
 
             Log.d("lghost", reminderFullDate)
-            //val reminder = Reminder(0, reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderDateTime.toString())
-            //mReminderViewModel.addReminder(reminder)
+            val reminder = Reminder(0, reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderFullDate)
+            mReminderViewModel.addReminder(reminder)
             Toast.makeText(requireContext(), "Recordatorio agregado correctamente.", Toast.LENGTH_LONG).show()
 
             // Volver a la lista de recordatorios
@@ -71,8 +67,6 @@ class AddReminder : Fragment() {
         }
 
     }
-
-
 
     private fun inputCheck(title: String, year: Int, month: Int, day: Int, hour: Int, minute: Int, reminderDateTime: String) : Boolean {
         return !(title.isEmpty() || year.equals(null) || month.equals(null) || day.equals(null) || hour.equals(null) || minute.equals(null)) || TextUtils.isEmpty(reminderDateTime)
