@@ -13,21 +13,21 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/reminderNameEditText"
+            android:id="@+id/etEditReminderName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="Nombre del recordatorio"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:autofillHints=""
-            android:inputType="textAutoCorrect" />
+            android:inputType="textAutoComplete"
+            android:autofillHints="" />
 
         <DatePicker
-            android:id="@+id/datePicker"
+            android:id="@+id/editDatePicker"
             android:layout_width="wrap_content"
             android:layout_height="400dp"
-            app:layout_constraintTop_toBottomOf="@+id/reminderNameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/etEditReminderName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -36,22 +36,34 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:timePickerMode="spinner"
-            app:layout_constraintTop_toBottomOf="@+id/datePicker"
+            app:layout_constraintTop_toBottomOf="@+id/editDatePicker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/createReminderButton"
+            android:id="@+id/editReminderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crear recordatorio"
+            android:text="Actualizar recordatorio"
             app:layout_constraintTop_toBottomOf="@+id/timePicker"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:backgroundTint="@color/principal_green"/>
+            android:backgroundTint="@color/selected_green"/>
+
+        <Button
+            android:id="@+id/deleteReminderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Borrar recordatorio"
+            app:layout_constraintTop_toBottomOf="@+id/editReminderButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/warning"/>
+
+
 
         <ImageButton
-            android:id="@+id/btnBackScreen"
+            android:id="@+id/btnBackEditScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -62,7 +74,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:contentDescription="Volver"
             app:tint="@color/selected_green" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,16 @@ class ReminderRepository (private val reminderDao : ReminderDao) {
         reminderDao.addReminder(reminder)
     }
 
-    suspend fun deleteReminder(id: Int) {
-        reminderDao.deleteReminder(id)
+    suspend fun updateReminder(reminder: Reminder) {
+        reminderDao.updateReminder(reminder)
     }
+    suspend fun deleteReminder(reminder: Reminder) {
+        reminderDao.deleteReminder(reminder)
+    }
+
+    fun getNextCollection(currentTime: String) : LiveData<Reminder> {
+        return reminderDao.getNextCollection(currentTime)
+    }
+
+
 }

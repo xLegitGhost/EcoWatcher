@@ -30,7 +30,7 @@ class AddReminder : Fragment() {
         binding = FragmentAddReminderBinding.inflate(inflater, container, false)
 
         binding.btnBackScreen.setOnClickListener {
-            findNavController().navigate(R.id.action_addReminder_to_homeFragment)
+            findNavController().navigate(R.id.action_addReminder_to_listReminderFragment)
         }
 
         mReminderViewModel = ViewModelProvider(this).get(ReminderViewModel::class.java)
@@ -46,7 +46,7 @@ class AddReminder : Fragment() {
         val reminderTitle = binding.reminderNameEditText.text.toString()
 
         val reminderYear = binding.datePicker.year
-        val reminderMonth = binding.datePicker.month
+        val reminderMonth = binding.datePicker.month + 1
         val reminderDay = binding.datePicker.dayOfMonth
         val reminderHour = binding.timePicker.hour
         val reminderMinute = binding.timePicker.minute
@@ -55,7 +55,10 @@ class AddReminder : Fragment() {
 
         if(inputCheck(reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderFullDate)) {
 
-            Log.d("lghost", reminderFullDate)
+            if(reminderTitle.length > 25){
+                Toast.makeText(requireContext(), "El titulo es muy largo, prueba con uno más corto.", Toast.LENGTH_LONG).show()
+                return
+            }
             val reminder = Reminder(0, reminderTitle, reminderYear, reminderMonth, reminderDay, reminderHour, reminderMinute, reminderFullDate)
             mReminderViewModel.addReminder(reminder)
             Toast.makeText(requireContext(), "Recordatorio agregado correctamente.", Toast.LENGTH_LONG).show()

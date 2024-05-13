@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import dev.legitghost.ecowatcher.R
 import dev.legitghost.ecowatcher.data.Entitys.Reminder
+import dev.legitghost.ecowatcher.fragments.Reminders.ListReminderFragmentDirections
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
@@ -46,6 +49,13 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         tvReminderTitle.text = currentItem.title
         tvReminderTime.text = time
         tvReminderDate.text = date
+
+        val rowReminder = holder.itemView.findViewById<ConstraintLayout>(R.id.rowReminder)
+        rowReminder.setOnClickListener {
+            val action = ListReminderFragmentDirections.actionListReminderFragmentToEditReminder2(currentItem)
+            holder.itemView.findNavController().navigate(action)
+        }
+
 
     }
 

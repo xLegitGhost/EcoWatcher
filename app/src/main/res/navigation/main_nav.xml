@@ -46,13 +46,27 @@
     <fragment
         android:id="@+id/listReminderFragment"
         android:name="dev.legitghost.ecowatcher.fragments.Reminders.ListReminderFragment"
-        android:label="fragment_list_reminder"
-        tools:layout="@layout/fragment_list_reminder" >
+        android:label="listFragment"
+        tools:layout="@layout/fragment_list_reminder">
         <action
             android:id="@+id/action_listReminderFragment_to_addReminder"
             app:destination="@id/addReminder" />
         <action
             android:id="@+id/action_listReminderFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_listReminderFragment_to_editReminder2"
+            app:destination="@id/editReminder2" />
+    </fragment>
+    <fragment
+        android:id="@+id/editReminder2"
+        android:name="dev.legitghost.ecowatcher.fragments.Reminders.EditReminder"
+        android:label="EditReminder" >
+        <action
+            android:id="@+id/action_editReminder2_to_listReminderFragment"
+            app:destination="@id/listReminderFragment" />
+        <argument
+            android:name="currentReminder"
+            app:argType="dev.legitghost.ecowatcher.data.Entitys.Reminder" />
     </fragment>
 </navigation>
