@@ -103,32 +103,6 @@
         android:layout_marginTop="16dp"
         />
 
-    <TextView
-        android:id="@+id/tvTitleRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tus ultimas recolecciones:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivPapelera"
-        />
-
-    <TextView
-        android:id="@+id/tvListRecolecciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TODO"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitleRegistro"
-        />
 
     <TextView
         android:id="@+id/tvTitleConsejos"
@@ -142,7 +116,7 @@
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvListRecolecciones"
+        app:layout_constraintTop_toBottomOf="@id/ivPapelera"
         />
 
 
