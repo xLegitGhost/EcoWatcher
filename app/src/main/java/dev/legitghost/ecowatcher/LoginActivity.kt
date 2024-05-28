@@ -6,6 +6,7 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dev.legitghost.ecowatcher.databinding.ActivityLoginBinding
 
 
@@ -13,12 +14,16 @@ class LoginActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        val screenSplash = installSplashScreen()
+
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         createNotificationChannel()
 
+        screenSplash.setKeepOnScreenCondition{false}
 
     }
 
