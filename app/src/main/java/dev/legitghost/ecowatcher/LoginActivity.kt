@@ -3,6 +3,7 @@ package dev.legitghost.ecowatcher
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.selected_green)))
 
         createNotificationChannel()
 
