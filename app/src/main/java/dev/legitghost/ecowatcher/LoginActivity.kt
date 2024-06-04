@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
         createNotificationChannel()
 
-        screenSplash.setKeepOnScreenCondition{false}
+        //screenSplash.setKeepOnScreenCondition{false}
 
     }
 
