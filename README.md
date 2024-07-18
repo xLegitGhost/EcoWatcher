@@ -1,4 +1,4 @@
-# 🌟 EcoWatcher - Recordatorios de recolección de basura 🌟
+# 🌟 EcoWatcher 🌟
 
 ## 📖 Descripción
 
