@@ -9,4 +9,6 @@ Además de dar ciertos TIPS amigables para cuidado del medio ambiente :))
 
 🛠️ Construido con
 * Kotlin - Android Studio
+* Arquitectura MVVM
+* Base de datos local (Room)
 
